@@ -16,7 +16,6 @@ class ParseView(viewsets.GenericViewSet):
 
     @action(methods=["POST", ], detail=False)
     def get_parse_data(self, request):
-        # serializer = self.get_serializer_class(request.data)
         url = request.data
         data = parse_item(url=url["url"])
         return Response(data=data, status=status.HTTP_200_OK)
